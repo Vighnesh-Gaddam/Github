@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Configuration and Usage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        code {
+            background-color: #e0e0e0;
+            padding: 2px 4px;
+            border-radius: 4px;
+            color: #d14;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            background-color: #dfe7ef;
+            padding: 10px;
+            border-left: 5px solid #007bff;
+        }
+        .section pre {
+            background-color: #282c34;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .explanation {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #007bff;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Git Configuration and Usage</h1>
+
+    <div class="section">
+        <h2>Configuring Git</h2>
+        <p>To configure Git settings, use the following commands:</p>
+        <pre><code>git config --global user.name "&lt;name&gt;"
+git config --global user.email "&lt;email@female.com&gt;"
+git config --global core.editor "&lt;editor --wait&gt;"
+git config --global core.autocrlf &lt;true|false&gt;
+        </code></pre>
+        <p>To edit Git configurations:</p>
+        <pre><code>git config --global -e
+        </code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Git Installation and Basics</h2>
+
+        <h3>Git Stages</h3>
+        <ul>
+            <li><strong>U</strong>: Untracked</li>
+            <li><strong>A</strong>: Added or Staged</li>
+            <li><strong>C</strong>: Committed</li>
+        </ul>
+
+        <h3>Common Commands</h3>
+        <ul>
+            <li><strong>Check current status of files</strong>: 
+                <pre><code>git status -s</code></pre>
+                <div class="explanation">
+                    To know the current status of unstaged and staged files.
+                </div>
+            </li>
+            <li><strong>View commit history</strong>: 
+                <pre><code>git log --oneline --graph</code></pre>
+                <div class="explanation">
+                    To know the current status of saved points (Commits).
+                </div>
+            </li>
+        </ul>
+
+        <h3>Managing Projects with Git</h3>
+        <ol>
+            <li><strong>Initialize Git in a project folder</strong>:
+                <pre><code>git init</code></pre>
+                <div class="explanation">
+                    When you create a new folder, Git does not know about it. You need to initialize Git in the folder to give it permissions. Once initialized, Git can track the folder, and you can create untracked, tracked, modified, staged, and saved checkpoints.
+                </div>
+            </li>
+            <li><strong>Create Checkpoints (Commits)</strong>:
+                <ul>
+                    <li><strong>Add files</strong>:
+                        <pre><code>git add &lt;file&gt;</code></pre>
+                    </li>
+                    <li><strong>Stage files</strong>:
+                        <pre><code>git add .</code></pre>
+                    </li>
+                    <li><strong>Commit changes</strong>:
+                        <pre><code>git commit -m "Your commit message"</code></pre>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Go back to a previous commit</strong>:
+                <pre><code>git reset --hard HEAD~1</code></pre>
+            </li>
+            <li><strong>Check file statuses and saved checkpoints</strong>:
+                <ul>
+                    <li><strong>File statuses</strong>:
+                        <pre><code>git status -s</code></pre>
+                    </li>
+                    <li><strong>Commit history with graph</strong>:
+                        <pre><code>git log --oneline --graph</code></pre>
+                        <div class="explanation">
+                            Check how many files are at which stage and view your saved checkpoints with a visual graph.
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Merging Techniques</h2>
+        <ul>
+            <li>Fast Forward Merge</li>
+            <li>Three-Way Merge</li>
+            <li>Squash Merging</li>
+            <li>Recursive Strategy Merge</li>
+            <li>Rebase and Merge</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Handling Conflicts</h2>
+        <p>Conflicts arise when merging branches with differing changes. Resolve conflicts by choosing between incoming changes (red) and current changes (green), or combining both.</p>
+    </div>
+
+    <div class="section">
+        <h2>Branches</h2>
+        <ul>
+            <li><strong>List all branches</strong>: <pre><code>git branch</code></pre></li>
+            <li><strong>Create a new branch</strong>: <pre><code>git branch &lt;branchname&gt;</code></pre></li>
+            <li><strong>Delete a branch</strong>: <pre><code>git branch -d &lt;branchname&gt;</code></pre></li>
+            <li><strong>Switch branches</strong>: <pre><code>git switch &lt;branchname&gt;</code></pre></li>
+            <li><strong>Create and switch to a new branch</strong>: <pre><code>git switch -C &lt;branchname&gt;</code></pre></li>
+            <li><strong>Merge branches</strong>: <pre><code>git merge &lt;branchname&gt;</code></pre></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Stashing Changes</h2>
+        <p>When you need to switch branches but have uncommitted changes:</p>
+        <ul>
+            <li><strong>Stash changes</strong>: 
+                <pre><code>git stash</code></pre>
+                <div class="explanation">
+                    This command saves your uncommitted changes so you can switch branches without losing them.
+                </div>
+            </li>
+            <li><strong>Apply stashed changes</strong>: 
+                <pre><code>git stash apply</code></pre>
+                <div class="explanation">
+                    This command retrieves the stashed changes and applies them to your working directory.
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <p>This guide covers basic Git configuration, usage, and branch management to help you efficiently manage your projects.</p>
+
+</body>
+</html>
